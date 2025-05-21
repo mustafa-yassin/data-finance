@@ -40,11 +40,18 @@ const Navbar = () => {
           }
         >
           <ul className="pt-17 uppercase p-4">
-            <li className="p-4 border-b border-gray-600">Home</li>
-            <li className="p-4 border-b border-gray-600">Company</li>
-            <li className="p-4 border-b border-gray-600">Resources</li>
-            <li className="p-4 border-b border-gray-600">About</li>
-            <li className="p-4">Contact</li>
+            <Link className="hover:text-[#00df9a]" to="/">
+              <li className="p-4 border-b border-gray-600">Home</li>
+            </Link>
+            <Link className="hover:text-[#00df9a]" to="/resources">
+              <li className="p-4 border-b border-gray-600">Resources</li>
+            </Link>
+            <Link className="hover:text-[#00df9a]" to="/about">
+              <li className="p-4 border-b border-gray-600">About</li>
+            </Link>
+            <Link className="hover:text-[#00df9a]" to="/contact">
+              <li className="p-4">Contact</li>
+            </Link>
           </ul>
         </div>
       </div>
