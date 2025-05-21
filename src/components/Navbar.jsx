@@ -3,9 +3,18 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "Resources", path: "/resources" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
   const [toggleNav, setToggleNav] = useState(false);
   const handleNav = () => {
     setToggleNav(!toggleNav);
+  };
+  const handleLinkClick = () => {
+    setToggleNav(false);
   };
   return (
     <div className="fixed left-0 top-0 w-full bg-[#000300] z-50">
@@ -40,18 +49,16 @@ const Navbar = () => {
           }
         >
           <ul className="pt-17 uppercase p-4">
-            <Link className="hover:text-[#00df9a]" to="/">
-              <li className="p-4 border-b border-gray-600">Home</li>
-            </Link>
-            <Link className="hover:text-[#00df9a]" to="/resources">
-              <li className="p-4 border-b border-gray-600">Resources</li>
-            </Link>
-            <Link className="hover:text-[#00df9a]" to="/about">
-              <li className="p-4 border-b border-gray-600">About</li>
-            </Link>
-            <Link className="hover:text-[#00df9a]" to="/contact">
-              <li className="p-4">Contact</li>
-            </Link>
+            {links.map((link, index) => (
+              <Link
+                className="hover:text-[#00df9a]"
+                to={link.path}
+                key={index}
+                onClick={handleLinkClick}
+              >
+                <li className="p-4 border-b border-gray-600">{link.name}</li>
+              </Link>
+            ))}
           </ul>
         </div>
       </div>
